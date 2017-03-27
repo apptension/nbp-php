@@ -17,6 +17,12 @@
             "MaciejSzAt\\NbpPhp\\": "tests/behat/src/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/wojcikmat/nbp-php"
+        }
+    ],
     "require-dev": {
         "behat/behat": "~3.0.0",
         "behat/mink": "~1.6.0",
