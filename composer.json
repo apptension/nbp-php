@@ -4,6 +4,7 @@
     "keywords": ["nbp", "currency", "money"],
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/wojcikmat/nbp-php",
     "authors": [
         {
             "name": "Maciej Szopiński",
