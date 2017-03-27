@@ -1,9 +1,10 @@
 {
-    "name": "maciej-sz/nbp-php",
+    "name": "apptension/nbp-php",
     "description": "API for accessing NBP (Narodowy Bank Polski) currency rates in PHP",
     "keywords": ["nbp", "currency", "money"],
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/apptension/nbp-php",
     "authors": [
         {
             "name": "Maciej Szopiński",
@@ -17,6 +18,12 @@
             "MaciejSzAt\\NbpPhp\\": "tests/behat/src/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/apptension/nbp-php"
+        }
+    ],
     "require-dev": {
         "behat/behat": "~3.0.0",
         "behat/mink": "~1.6.0",

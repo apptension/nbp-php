@@ -24,6 +24,11 @@ class NbpRateTuple
     public $date = null;
 
     /**
+     * @var null|string
+     */
+    public $tableNumber = null;
+
+    /**
      * @param \SimpleXMLElement $Sx
      * @param null|\SimpleXMLElement $SxRoot [optional]
      * @return NbpRateTuple
@@ -36,6 +41,7 @@ class NbpRateTuple
         $Instance = new self();
         $Instance->currency_name = (string)$Sx->nazwa_waluty;
         $Instance->currency_code = (string)$Sx->kod_waluty;
+        $Instance->tableNumber = (string)$SxRoot->numer_tabeli;
 
         $multiplier = self::_makeFloat($Sx->przelicznik);
         $Instance->avg = $multiplier * self::_makeFloat($Sx->kurs_sredni);
