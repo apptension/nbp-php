@@ -1,11 +1,11 @@
 <?php
 namespace MaciejSz\NbpPhp\Service;
- 
+
 use MaciejSz\NbpPhp\Exc\ECouldNotLoadDir;
 
 class NbpDirLoader
 {
-    const DIR_URL = 'http://www.nbp.pl/kursy/xml/dir.txt';
+    const DIR_URL = 'http://www.nbp.pl/kursy/xml/dir%s.txt';
 
     /**
      * @param int $year
@@ -13,7 +13,7 @@ class NbpDirLoader
      */
     public function load($year)
     {
-        $url = self::DIR_URL;
+        $url = $this->getUrl($year);
         $dir = [];
         set_error_handler($this->_getLoadStreamErrorHandler($url));
         $txt = file_get_contents($url);
@@ -37,6 +37,19 @@ class NbpDirLoader
     }
 
     /**
+     * @param null|int $year
+     * @return string
+     */
+    public function getUrl($year = null)
+    {
+        $year = substr($year, 0, 4);
+        if ( empty($year) || self::_getCurrentYear() == $year ) {
+            $year = "";
+        }
+        return sprintf(self::DIR_URL, $year);
+    }
+
+    /**
      * @param string $url
      * @return callable
      */
@@ -57,4 +70,3 @@ class NbpDirLoader
         return $current_year;
     }
 }
- 
